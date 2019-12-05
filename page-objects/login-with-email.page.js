@@ -6,4 +6,11 @@ export class LoginWithEmailPage extends LoginPage{
         this.passwordInput = $('#memberLoginDialogpasswordInputinput');
         this.loginButton = $('#memberLoginDialogokButton');
     }
+
+    fillInFields(email, password) {
+        this.emailInput.sendKeys(email)
+            .then(() => {
+                this.passwordInput.sendKeys(password);
+            })
+    }
 }

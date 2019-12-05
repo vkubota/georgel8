@@ -4,7 +4,8 @@ export class MainPage {
     constructor() {
         this.memberBox = $('');
         this.searchInput = $('._11kpT.ma-primary-font-color.ma-fill-primary-text');
-        this.membersList = $$('.yIWTe.VBPn8')
+        this.membersList = $$('.yIWTe.VBPn8');
+
     }
 
     findMemberByName(name) {
