@@ -1,0 +1,9 @@
+{
+  "name": "georgel8",
+  "version": "1.0.0",
+  "dependencies": {
+    "protractor": "^5.4.2",
+    "jasmine": "latest",
+    "selenium-webdriver": "latest"
+  }
+}
