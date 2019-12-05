@@ -26,6 +26,7 @@ describe('Login Page', function () {
                 logInWithEmailPage.fillInFields('test567@gmail.com', '111111')
             })
             .then(() => (logInWithEmailPage.loginButton.click()))
+        //get members array, check id of 1th member
 
 
     });
