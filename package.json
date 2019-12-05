@@ -1,9 +1,25 @@
 {
   "name": "georgel8",
   "version": "1.0.0",
+  "scripts": {
+    "test": "protractor ./conf.js",
+    "pretest": "babel ./src -d ./tmp -s"
+  },
   "dependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "jasmine": "^3.5.0",
     "protractor": "^5.4.2",
-    "jasmine": "latest",
     "selenium-webdriver": "latest"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "@types/jasmine": "^3.5.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
