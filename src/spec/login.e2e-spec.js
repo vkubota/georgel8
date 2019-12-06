@@ -1,8 +1,7 @@
 import {browser, ExpectedConditions} from 'protractor';
-import {SignUpPage} from '../page-objects/signUp.page';
+import {SignUpPage} from '../page-objects/signUp-page'
 import {StartPage} from '../page-objects/start-page';
 import {LogInPage} from '../page-objects/logIn-page';
-import {LoginWithEmailPage} from '../page-objects/login-with-email.page';
 
 describe('Login Page', () => {
     browser.waitForAngularEnabled(false);
@@ -10,7 +9,7 @@ describe('Login Page', () => {
     const startPage = new StartPage();
     const singUpPage = new SignUpPage();
     const logInPage = new LogInPage();
-    const logInWithEmailPage = new LoginWithEmailPage();
+
 
     beforeEach(() => {
         startPage.getPage(3000)
@@ -25,16 +24,15 @@ describe('Login Page', () => {
             });
     });
 
-    it('Should successfully log in using email ', () => {
+    it('Should successfully log in user system', () => {
         startPage.loginButton.getWebElement()
             .then(button => button.click())
             .then(() => browser.driver.switchTo().defaultContent())
-            .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(singUpPage.logInLink), 1000))
+            .then(() => browser.driver.wait(ExpectedConditions.elementToBeClickable(singUpPage.logInLink), 1000))
             .then(() => singUpPage.logInLink.click())
-            .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.loginWithEmailLink), 1000))
             .then(() => logInPage.loginWithEmailLink.click())
             .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.emailInput), 3000))
-            .then(() => LogInPage.emailInput.isPresent())
+            .then(() => logInPage.emailInput.isPresent())
             .then(linkPresent => {
                 expect(linkPresent).toBeTruthy();
             });
