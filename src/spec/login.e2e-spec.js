@@ -1,7 +1,7 @@
 import {browser, ExpectedConditions} from 'protractor';
-import {SignUpPage} from '../page-objects/signup.page';
+import {SignUpPage} from '../page-objects/signUp.page';
 import {StartPage} from '../page-objects/start-page';
-import {LoginPage} from '../page-objects/login-page';
+import {LogInPage} from '../page-objects/logIn-page';
 import {LoginWithEmailPage} from '../page-objects/login-with-email.page';
 
 describe('Login Page', () => {
@@ -9,7 +9,7 @@ describe('Login Page', () => {
 
     const startPage = new StartPage();
     const singUpPage = new SignUpPage();
-    const logInPage = new LoginPage();
+    const logInPage = new LogInPage();
     const logInWithEmailPage = new LoginWithEmailPage();
 
     beforeEach(() => {
@@ -25,15 +25,18 @@ describe('Login Page', () => {
             });
     });
 
-    it('Should successfully log in user system', () => {
+    it('Should successfully log in using email ', () => {
         startPage.loginButton.getWebElement()
             .then(button => button.click())
             .then(() => browser.driver.switchTo().defaultContent())
             .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(singUpPage.logInLink), 1000))
             .then(() => singUpPage.logInLink.click())
+            .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.loginWithEmailLink), 1000))
             .then(() => logInPage.loginWithEmailLink.click())
-            .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.emailInput), 3000))
-            .then(() => logInPage.emailInput.isPresent())
+            .then(() => browser.wait(ExpectedConditions.presenceOf(logInPage.emailInput), 5000))
+            // .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.emailInput), 3000))
+            // .then((() => logInWithEmailPage.emailInput.click()))
+            // .then(() => LoginWithEmailPage.emailInput.isPresent())
             .then(linkPresent => {
                 expect(linkPresent).toBeTruthy();
             });
