@@ -10,10 +10,10 @@ export class LogInPage {
     }
 
     get passwordInput() {
-        return browser.$('#memberLoginDialogblockingLayer');
+        return browser.$('#memberLoginDialogpasswordInputinput');
     }
 
     get loginButton() {
-        return browser.$('#memberLoginDialogblockingLayer');
+        return browser.$('#memberLoginDialogokButton');
     }
 }

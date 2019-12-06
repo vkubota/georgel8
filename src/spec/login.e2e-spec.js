@@ -33,29 +33,11 @@ describe('Login Page', () => {
             .then(() => singUpPage.logInLink.click())
             .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.loginWithEmailLink), 1000))
             .then(() => logInPage.loginWithEmailLink.click())
-            .then(() => browser.wait(ExpectedConditions.presenceOf(logInPage.emailInput), 5000))
-            // .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.emailInput), 3000))
-            // .then((() => logInWithEmailPage.emailInput.click()))
-            // .then(() => LoginWithEmailPage.emailInput.isPresent())
+            .then(() => browser.driver.wait(ExpectedConditions.visibilityOf(logInPage.emailInput), 3000))
+            .then(() => LogInPage.emailInput.isPresent())
             .then(linkPresent => {
                 expect(linkPresent).toBeTruthy();
             });
 
-        // startPage.getPage()
-        //     .then(() => startPage.waitForLoginButtonLink())
-        //     .then(() => {
-        //         startPage.loginButton.click();
-        //     })
-        //     .then(() => {
-        //         singUpPage.loginLink.click();
-        //     })
-        //     .then(() => {
-        //         logInPage.loginWithEmailButton.click();
-        //     })
-        //     .then(() => {
-        //         logInWithEmailPage.fillInFields('test567@gmail.com', '111111');
-        //     })
-        //     .then(() => (logInWithEmailPage.loginButton.click()))
-        //get members array, check id of 1th member
     });
 });
