@@ -6,7 +6,7 @@ export class LogInPage {
     }
 
     get emailInput() {
-        return browser.$('.s_WTfImemberLoginDialogSkinMaterialinputWithValidation_new')
+        return browser.$('#memberLoginDialogemailInputinput')
     }
 
     get passwordInput() {
